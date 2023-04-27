@@ -108,6 +108,13 @@ class ProjectController extends Controller
 
         $project->update($data);
 
+        if (isset($data['technologies'])) {
+            $project->technologies()->sync($data['technologies']);
+        }else{
+            $project->technologies()->sync([]);
+            //alternativa usare detach() cioè $project->technologies()->detach();
+        }
+
         return to_route('projects.show', $project);
     }
 
