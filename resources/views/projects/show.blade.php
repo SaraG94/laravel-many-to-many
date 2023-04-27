@@ -15,7 +15,7 @@
                 
                 <ul class="ps-0 d-flex gap-1">
                 @forelse($project->technologies as $tech )
-                    <span class="badge rounded-pill text-bg-light">hi{{ $tech->nome }}</span>
+                    <span class="badge rounded-pill text-bg-light">{{ $tech->nome }}</span>
                 @empty
                     -
                 @endforelse
