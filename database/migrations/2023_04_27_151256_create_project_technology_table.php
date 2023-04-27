@@ -22,7 +22,7 @@ return new class extends Migration
             //creo la colonna technology_id
             $table->unsignedBigInteger('technology_id');
             //definisco la chiave esterna
-            $table->foreign('technology_id')->references('id')->on('tecnologies');
+            $table->foreign('technology_id')->references('id')->on('technologies');
         });
     }
 
