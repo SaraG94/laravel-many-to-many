@@ -138,6 +138,9 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         if ($project->trashed()) {
+
+            $project->technologies()->detach(); //elimino i collegamenti con la tabella ponte. Alternativa sulla migration modificare restric assegnato di dafeualt alle chiavi esterne
+
             $project->forceDelete(); // eliminazione definitiva
         } else {
             $project->delete(); // soft
