@@ -12,8 +12,16 @@
             <div class="me-auto">
                 <h1>{{ $project->titolo }}</h1>
                 <h4>Type: {{ $project->type ? $project->type->nome : '/' }}</h4>
+                
+                <ul class="ps-0 d-flex gap-1">
+                @forelse($project->technologies as $tech )
+                    <span class="badge rounded-pill text-bg-light">hi{{ $tech->nome }}</span>
+                @empty
+                    -
+                @endforelse
+                </ul>
             </div>
-
+     
             <div>
                 <a class="btn btn-sm btn-primary" href="{{ route('projects.edit',$project) }}">Modifica</a>
                 @if($project->trashed())
